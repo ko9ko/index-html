@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)file:///C:/Users/Carlos/OneDrive/Escritorio/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Menú Digital</title>
+
+<style>
+
+body{
+  font-family: Arial;
+  padding:20px;
+}
+
+button{
+  background:black;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:8px;
+  margin-left:10px;
+  cursor:pointer;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Menú Digital</h1>
+
+<h2>Entradas</h2>
+
+<ul>
+
+<li>
+Sopa
+<button onclick="agregarPedido(&#39;Sopa&#39;)">
+Pedir
+</button>
+</li>
+
+<li>
+Ceviche
+<button onclick="agregarPedido(&#39;Ceviche&#39;)">
+Pedir
+</button>
+</li>
+
+<li>
+Huancaína
+<button onclick="agregarPedido(&#39;Huancaína&#39;)">
+Pedir
+</button>
+</li>
+
+</ul>
+
+<h2>Segundos</h2>
+
+<ul>
+
+<li>
+Pollo al horno
+<button onclick="agregarPedido(&#39;Pollo al horno&#39;)">
+Pedir
+</button>
+</li>
+
+<li>
+Arroz chaufa
+<button onclick="agregarPedido(&#39;Arroz chaufa&#39;)">
+Pedir
+</button>
+</li>
+
+</ul>
+
+<h2>Tu pedido</h2>
+
+<ul id="pedido"></ul>
+
+<button onclick="confirmarPedido()">
+Confirmar pedido
+</button>
+
+<script>
+
+let pedidos = [];
+
+function agregarPedido(plato){
+
+  pedidos.push(plato);
+
+  const lista = document.getElementById("pedido");
+
+  const item = document.createElement("li");
+
+  item.textContent = plato;
+
+  lista.appendChild(item);
+
+}
+
+function confirmarPedido(){
+
+  let mensaje = "Hola, quiero pedir:%0A";
+
+  pedidos.forEach((pedido) => {
+    mensaje += "- " + pedido + "%0A";
+  });
+
+  window.open(
+    "https://wa.me/51976483262?text=" + mensaje,
+    "_blank"
+  );
+
+}
+
+</script>
+
+
+</body></html>
